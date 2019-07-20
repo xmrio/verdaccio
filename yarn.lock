@@ -6595,12 +6595,19 @@ pinkie@^2.0.0:
   resolved "https://registry.verdaccio.org/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
+pino-multi-stream@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.verdaccio.org/pino-multi-stream/-/pino-multi-stream-4.1.0.tgz#1ba9fc0e101775283eed308cc4e4b43f622b5d3d"
+  integrity sha512-lmJz8aWQFEKwcOxefrQMIuqZ8rpi6IUpgZsDq9PcE4fnANJkKDKbxJewjwMF6Ccwl3oc3SZzFyfiMM2In7MJfA==
+  dependencies:
+    pino "^5.12.6"
+
 pino-std-serializers@^2.3.0:
   version "2.4.2"
   resolved "https://registry.verdaccio.org/pino-std-serializers/-/pino-std-serializers-2.4.2.tgz#cb5e3e58c358b26f88969d7e619ae54bdfcc1ae1"
   integrity sha512-WaL504dO8eGs+vrK+j4BuQQq6GLKeCCcHaMB2ItygzVURcL1CycwNEUHTD/lHFHs/NL5qAz2UKrjYWXKSf4aMQ==
 
-pino@5.13.0:
+pino@5.13.0, pino@^5.12.6:
   version "5.13.0"
   resolved "https://registry.verdaccio.org/pino/-/pino-5.13.0.tgz#12a38a2cd43b3553a71b669a68cb7930f43be7d9"
   integrity sha512-cYmYb1bRp1NyCvi+HBjmlsDsojnMrcn0weYgcYvg4l6Oj3zi76RlNToPvQLT59D/jGgex36pH84sB5XIQ/GYAA==
