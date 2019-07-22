@@ -1,15 +1,11 @@
 /* eslint-disable */
 
 import pino from 'pino';
+import fs from 'fs';
 import {prettyTimestamped} from "./logger/format/pretty-timestamped";
 import {pretty} from "./logger/format/pretty";
 import {jsonFormat} from "./logger/format/json";
-
-const loggerPino = pino();
-
-// pino.destination('./log.text')
-
-// loggerPino.info('hello world');
+import pinoms from 'pino-multi-stream';
 
 const cluster = require('cluster');
 const Logger = require('bunyan');
@@ -30,9 +26,12 @@ class VerdaccioRotatingFileStream extends Logger.RotatingFileStream {
 
 let logger;
 
+export type TargetFormat = 'pretty' | 'json' | 'pretty-timestamped';
+export type TargetType = 'file' | 'stdout' | 'stderr' | 'rotating-file';
+
 export interface LoggerTarget {
-  type?: string;
-  format?: string;
+  type?: TargetType;
+  format?: TargetFormat;
   level?: string;
   options?: any;
   path?: string;
@@ -58,34 +57,34 @@ function setup(logs) {
 
     // create a stream for each log configuration
     if (target.type === 'rotating-file') {
-      if (target.format !== 'json') {
-        throw new Error('Rotating file streams only work with JSON!');
-      }
-      if (cluster.isWorker) {
-        // https://github.com/trentm/node-bunyan#stream-type-rotating-file
-        throw new Error('Cluster mode is not supported for rotating-file!');
-      }
-
-      const stream = new VerdaccioRotatingFileStream(
-        // @ts-ignore
-        _.merge(
-          {},
-          // Defaults can be found here: https://github.com/trentm/node-bunyan#stream-type-rotating-file
-          target.options || {},
-          { path: target.path, level }
-        )
-      );
-
-      const rotateStream: any = {
-        // @ts-ignore
-        type: 'raw',
-        // @ts-ignore
-        level,
-        // @ts-ignore
-        stream,
-      };
-
-      streams.push(rotateStream);
+      // if (target.format !== 'json') {
+      //   throw new Error('Rotating file streams only work with JSON!');
+      // }
+      // if (cluster.isWorker) {
+      //   // https://github.com/trentm/node-bunyan#stream-type-rotating-file
+      //   throw new Error('Cluster mode is not supported for rotating-file!');
+      // }
+      //
+      // const stream = new VerdaccioRotatingFileStream(
+      //   // @ts-ignore
+      //   _.merge(
+      //     {},
+      //     // Defaults can be found here: https://github.com/trentm/node-bunyan#stream-type-rotating-file
+      //     target.options || {},
+      //     { path: target.path, level }
+      //   )
+      // );
+      //
+      // const rotateStream: any = {
+      //   // @ts-ignore
+      //   type: 'raw',
+      //   // @ts-ignore
+      //   level,
+      //   // @ts-ignore
+      //   stream,
+      // };
+      //
+      // streams.push(rotateStream);
     } else {
       const stream = new Stream();
       stream.writable = true;
@@ -93,14 +92,19 @@ function setup(logs) {
       let destination;
       let destinationIsTTY = false;
       if (target.type === 'file') {
+        if (target && _.isNil(target.path)) {
+          throw Error('logging with a file requires a path');
+        }
+
         // destination stream
-        destination = require('fs').createWriteStream(target.path, { flags: 'a', encoding: 'utf8' });
+        destination = fs.createWriteStream(target.path as string, { flags: 'a', encoding: 'utf8' });
         destination.on('error', function(err) {
           stream.emit('error', err);
         });
       } else if (target.type === 'stdout' || target.type === 'stderr') {
         destination = target.type === 'stdout' ? process.stdout : process.stderr;
         destinationIsTTY = destination.isTTY;
+        // pino.destination(destination);
       } else {
         throw Error('wrong target type for a log');
       }
@@ -133,7 +137,7 @@ function setup(logs) {
   });
 
   // buyan default configuration
-  logger = new Logger({
+  let llogger = new Logger({
     name: pkgJSON.name,
     streams: streams,
     serializers: {
@@ -143,9 +147,31 @@ function setup(logs) {
     },
   });
 
-  process.on('SIGUSR2', function() {
-    Logger.reopenFileStreams();
+  logger = pino({
+    serializers: {
+      err: pino.stdSerializers.err,
+      req: pino.stdSerializers.req,
+      res: pino.stdSerializers.res
+    },
   });
+
+  const stream = new TransformStream()
+
+
+  process.on('SIGUSR2', function() {
+    // Logger.reopenFileStreams();
+  });
+
+  process.on('uncaughtException', pino.final(logger, (err, finalLogger) => {
+    finalLogger.error(err, 'uncaughtException');
+    process.exit(1);
+  }));
+
+  // @ts-ignore
+  process.on('unhandledRejection', pino.final(logger, (err, finalLogger) => {
+    finalLogger.error(err, 'unhandledRejection');
+    process.exit(1);
+  }));
 }
 
 export { setup, logger };

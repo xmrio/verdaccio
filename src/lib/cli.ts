@@ -12,6 +12,7 @@ import { bgYellow, bgRed } from 'kleur';
 import {startVerdaccio, listenDefaultCallback} from './bootstrap';
 import findConfigFile from './config-path';
 import { parseConfigFile } from './utils';
+import { setup, logger } from './logger';
 
 require('pkginfo')(module);
 
@@ -28,8 +29,8 @@ if (semver.satisfies(process.version, `>=${MIN_NODE_VERSION}`) === false) {
 
 process.title = 'verdaccio';
 
-const logger = require('./logger');
-logger.setup(); // default setup
+// const logger = require('./logger');
+setup(undefined); // default setup
 
 const envinfo = require('envinfo');
 const commander = require('commander');
@@ -60,11 +61,11 @@ function init() {
       verdaccioConfiguration.https = {enable: false};
     }
 
-    logger.logger.warn({file: configPathLocation}, 'config file  - @{file}');
+    logger.warn({file: configPathLocation}, 'config file  - @{file}');
 
     startVerdaccio(verdaccioConfiguration, cliListener, configPathLocation, pkgVersion, pkgName, listenDefaultCallback);
   } catch (err) {
-    logger.logger.fatal({file: configPathLocation, err: err}, 'cannot open config file @{file}: @{!err.message}');
+    logger.fatal({file: configPathLocation, err: err}, 'cannot open config file @{file}: @{!err.message}');
     process.exit(1);
   }
 }
@@ -95,7 +96,7 @@ if (commander.info) {
 }
 
 process.on('uncaughtException', function(err) {
-  logger.logger.fatal( {
+  logger.fatal( {
     err: err,
   },
   'uncaught exception, please report this\n@{err.stack}' );
