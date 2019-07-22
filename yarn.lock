@@ -1341,13 +1341,6 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/bunyan@1.8.6":
-  version "1.8.6"
-  resolved "https://registry.verdaccio.org/@types%2fbunyan/-/bunyan-1.8.6.tgz#6527641cca30bedec5feb9ab527b7803b8000582"
-  integrity sha512-YiozPOOsS6bIuz31ilYqR5SlLif4TBWsousN2aCWLi5233nZSX19tFbcQUPdR7xJ8ypPyxkCGNxg0CIV5n9qxQ==
-  dependencies:
-    "@types/node" "*"
-
 "@types/caseless@*":
   version "0.12.2"
   resolved "https://registry.verdaccio.org/@types%2fcaseless/-/caseless-0.12.2.tgz#f65d3d6389e01eeb458bd54dc8f52b95a9463bc8"
@@ -2234,16 +2227,6 @@ buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.verdaccio.org/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
-
-bunyan@1.8.12:
-  version "1.8.12"
-  resolved "https://registry.verdaccio.org/bunyan/-/bunyan-1.8.12.tgz#f150f0f6748abdd72aeae84f04403be2ef113797"
-  integrity sha1-8VDw9nSKvdcq6uhPBEA74u8RN5c=
-  optionalDependencies:
-    dtrace-provider "~0.8"
-    moment "^2.10.6"
-    mv "~2"
-    safe-json-stringify "~1"
 
 bytes@3.0.0:
   version "3.0.0"
@@ -3170,13 +3153,6 @@ dotgitignore@2.1.0:
   dependencies:
     find-up "^3.0.0"
     minimatch "^3.0.4"
-
-dtrace-provider@~0.8:
-  version "0.8.7"
-  resolved "https://registry.verdaccio.org/dtrace-provider/-/dtrace-provider-0.8.7.tgz#dc939b4d3e0620cfe0c1cd803d0d2d7ed04ffd04"
-  integrity sha1-3JObTT4GIM/gwc2APQ0tftBP/QQ=
-  dependencies:
-    nan "^2.10.0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -5965,11 +5941,6 @@ modify-values@^1.0.0:
   resolved "https://registry.verdaccio.org/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-moment@^2.10.6:
-  version "2.24.0"
-  resolved "https://registry.verdaccio.org/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
-  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
-
 mri@1.1.4:
   version "1.1.4"
   resolved "https://registry.verdaccio.org/mri/-/mri-1.1.4.tgz#7cb1dd1b9b40905f1fac053abe25b6720f44744a"
@@ -5995,7 +5966,7 @@ mute-stream@0.0.7:
   resolved "https://registry.verdaccio.org/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-mv@2.1.1, mv@~2:
+mv@2.1.1:
   version "2.1.1"
   resolved "https://registry.verdaccio.org/mv/-/mv-2.1.1.tgz#ae6ce0d6f6d5e0a4f7d893798d03c1ea9559b6a2"
   integrity sha1-rmzg1vbV4KT32JN5jQPB6pVZtqI=
@@ -6004,7 +5975,7 @@ mv@2.1.1, mv@~2:
     ncp "~2.0.0"
     rimraf "~2.4.0"
 
-nan@^2.10.0, nan@^2.12.1:
+nan@^2.12.1:
   version "2.14.0"
   resolved "https://registry.verdaccio.org/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
@@ -7309,11 +7280,6 @@ safe-buffer@^5.1.1:
   version "5.2.0"
   resolved "https://registry.verdaccio.org/safe-buffer/-/safe-buffer-5.2.0.tgz#b74daec49b1148f88c64b68d49b1e815c1f2f519"
   integrity sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg==
-
-safe-json-stringify@~1:
-  version "1.2.0"
-  resolved "https://registry.verdaccio.org/safe-json-stringify/-/safe-json-stringify-1.2.0.tgz#356e44bc98f1f93ce45df14bcd7c01cda86e0afd"
-  integrity sha512-gH8eh2nZudPQO6TytOvbxnuhYBOvDBBLW52tz5q6X58lJcd/tkmqFR+5Z9adS8aJtURSXWThWy/xJtJwixErvg==
 
 safe-regex@^1.1.0:
   version "1.1.0"

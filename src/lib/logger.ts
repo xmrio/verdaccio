@@ -155,9 +155,6 @@ function setup(logs) {
     },
   });
 
-  const stream = new TransformStream()
-
-
   process.on('SIGUSR2', function() {
     // Logger.reopenFileStreams();
   });
