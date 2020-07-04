@@ -39,6 +39,24 @@
   "dependencies": {
     "@verdaccio/cli": "5.0.0-alpha.0"
   },
+  "bundledDependencies": [
+    "@verdaccio/api",
+    "@verdaccio/auth",
+    "@verdaccio/cli",
+    "@verdaccio/dev-commons",
+    "@verdaccio/config",
+    "@verdaccio/hooks",
+    "@verdaccio/loaders",
+    "@verdaccio/logger-prettify",
+    "@verdaccio/logger",
+    "@verdaccio/middleware",
+    "@verdaccio/mock",
+    "@verdaccio/node-api",
+    "@verdaccio/proxy",
+    "@verdaccio/server",
+    "@verdaccio/store",
+    "@verdaccio/utils"
+  ],
   "keywords": [
     "private",
     "package",

@@ -3,7 +3,7 @@ import { logger, setup } from "../src";
 
 describe('logger', () => {
 	test('dsadasd', () => {
-			const spyOn = jest.spyOn( process.stdout, 'write');
+			// const spyOn = jest.spyOn( process.stdout, 'write');
 			setup([{
 				level: 'info'
 			}]);
