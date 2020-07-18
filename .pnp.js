@@ -202,10 +202,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:1.8.0"
       ],
       [
-        "husky",
-        "npm:2.7.0"
-      ],
-      [
         "in-publish",
         "npm:2.0.1"
       ],
@@ -384,7 +380,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["get-stdin", "npm:7.0.0"],
             ["handlebars", "npm:4.7.6"],
             ["http-errors", "npm:1.8.0"],
-            ["husky", "npm:2.7.0"],
             ["in-publish", "npm:2.0.1"],
             ["jest", "npm:25.3.0"],
             ["jest-environment-node", "npm:25.3.0"],
@@ -7908,25 +7903,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["husky", [
-        ["npm:2.7.0", {
-          "packageLocation": "./.yarn/unplugged/husky-npm-2.7.0-05900f816a/node_modules/husky/",
-          "packageDependencies": [
-            ["husky", "npm:2.7.0"],
-            ["cosmiconfig", "npm:5.2.1"],
-            ["execa", "npm:1.0.0"],
-            ["find-up", "npm:3.0.0"],
-            ["get-stdin", "npm:7.0.0"],
-            ["is-ci", "npm:2.0.0"],
-            ["pkg-dir", "npm:4.2.0"],
-            ["please-upgrade-node", "npm:3.1.1"],
-            ["read-pkg", "npm:5.2.0"],
-            ["run-node", "npm:1.0.0"],
-            ["slash", "npm:3.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["iconv-lite", [
         ["npm:0.4.24", {
           "packageLocation": "./.yarn/cache/iconv-lite-npm-0.4.24-c5c4ac6695-a9b9521066.zip/node_modules/iconv-lite/",
@@ -12866,15 +12842,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["run-node", [
-        ["npm:1.0.0", {
-          "packageLocation": "./.yarn/cache/run-node-npm-1.0.0-897c9cb906-8e154ab24e.zip/node_modules/run-node/",
-          "packageDependencies": [
-            ["run-node", "npm:1.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["rxjs", [
         ["npm:6.5.2", {
           "packageLocation": "./.yarn/cache/rxjs-npm-6.5.2-974433f2ad-537cc6c4d0.zip/node_modules/rxjs/",
@@ -14571,7 +14538,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["get-stdin", "npm:7.0.0"],
             ["handlebars", "npm:4.7.6"],
             ["http-errors", "npm:1.8.0"],
-            ["husky", "npm:2.7.0"],
             ["in-publish", "npm:2.0.1"],
             ["jest", "npm:25.3.0"],
             ["jest-environment-node", "npm:25.3.0"],
