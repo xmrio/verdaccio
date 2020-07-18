@@ -2805,6 +2805,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@verdaccio/babel-preset@npm:^9.7.1":
+  version: 9.7.1
+  resolution: "@verdaccio/babel-preset@npm:9.7.1"
+  dependencies:
+    "@babel/cli": 7.10.4
+    "@babel/core": 7.10.4
+    "@babel/node": 7.10.4
+    "@babel/plugin-proposal-class-properties": 7.10.4
+    "@babel/plugin-proposal-decorators": 7.10.4
+    "@babel/plugin-proposal-export-namespace-from": 7.10.4
+    "@babel/plugin-proposal-function-sent": 7.10.4
+    "@babel/plugin-proposal-json-strings": 7.10.4
+    "@babel/plugin-proposal-nullish-coalescing-operator": 7.10.4
+    "@babel/plugin-proposal-numeric-separator": 7.10.4
+    "@babel/plugin-proposal-object-rest-spread": 7.10.4
+    "@babel/plugin-proposal-optional-chaining": 7.10.4
+    "@babel/plugin-proposal-throw-expressions": 7.10.4
+    "@babel/plugin-syntax-dynamic-import": 7.8.3
+    "@babel/plugin-syntax-import-meta": 7.10.4
+    "@babel/plugin-transform-async-to-generator": 7.10.4
+    "@babel/plugin-transform-classes": 7.10.4
+    "@babel/plugin-transform-runtime": 7.10.4
+    "@babel/polyfill": 7.10.4
+    "@babel/preset-env": 7.10.4
+    "@babel/preset-react": 7.10.4
+    "@babel/preset-typescript": 7.10.4
+    "@babel/register": 7.10.4
+    "@babel/runtime": 7.10.4
+    babel-core: 7.0.0-bridge.0
+    babel-eslint: 10.1.0
+    babel-jest: 26.1.0
+    babel-plugin-dynamic-import-node: 2.3.3
+    babel-plugin-emotion: 10.0.33
+  checksum: 93ade8e53b0d866b65eaae754ed5b3cc6c24c0cebe30d3f17d4a8693cda80f8e002f69e8ad8db9a8a717fc1e30cecce57cfa5963e449ade0096b2d4cf2e621a7
+  languageName: node
+  linkType: hard
+
 "@verdaccio/commons-api@npm:9.7.1, @verdaccio/commons-api@npm:^9.4.0, @verdaccio/commons-api@npm:^9.7.1":
   version: 9.7.1
   resolution: "@verdaccio/commons-api@npm:9.7.1"
@@ -13127,6 +13164,7 @@ typescript@3.7.5:
     "@types/semver": 6.2.0
     "@typescript-eslint/eslint-plugin": 2.21.0
     "@typescript-eslint/parser": 2.21.0
+    "@verdaccio/babel-preset": ^9.7.1
     "@verdaccio/commons-api": 9.7.1
     "@verdaccio/eslint-config": ^8.5.0
     "@verdaccio/local-storage": 9.7.1

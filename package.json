@@ -93,6 +93,7 @@
     "@types/semver": "6.2.0",
     "@typescript-eslint/eslint-plugin": "2.21.0",
     "@typescript-eslint/parser": "2.21.0",
+    "@verdaccio/babel-preset": "^9.7.1",
     "@verdaccio/eslint-config": "^8.5.0",
     "@verdaccio/types": "^9.7.0",
     "all-contributors-cli": "6.16.0",
