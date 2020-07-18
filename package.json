@@ -12,9 +12,7 @@
   },
   "homepage": "https://verdaccio.org",
   "main": "build/index.js",
-  "bin": {
-    "verdaccio": "./bin/verdaccio"
-  },
+  "bin": "./bin/verdaccio",
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/verdaccio"
