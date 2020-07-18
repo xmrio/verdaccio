@@ -20,7 +20,7 @@ jobs:
       with:
         node_version: ${{ matrix.node_version }}
     - name: Install
-      run: yarn install --pure-lockfile
+      run: yarn install --immutable
     - name: Build
       run: yarn code:build
     - name: Lint

@@ -55,7 +55,7 @@ jobs:
       - name: 'install latest npm'
         run: npm i -g npm
       - name: Install Dependencies
-        run: yarn install --pure-lockfile
+        run: yarn install --immutable
       - name: 'Run verdaccio in the background'
         run: |
           nohup node ./scripts/run-verdaccio.js &
